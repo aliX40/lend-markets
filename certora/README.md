@@ -57,9 +57,9 @@ The repository links above point to the current public repositories.
 
 The contracts in scope:
 
-**Forked core** ([`lido-lend/src/`](../lib/lend/src/))
+**Forked core** ([`lido-lend/src/`](https://github.com/lidofinance/lend/tree/422d589f9d098124249b54b55306884165833207/src))
 
-1. **LidoLend** ([`LidoLend.sol`](../lib/lend/src/LidoLend.sol)): the forked Morpho Blue core, which can bind a market to a controller at creation and adds the par-value `settle` exit, burning a supplier's shares to cancel borrower debt and seize the matching collateral.
+1. **LidoLend** ([`LidoLend.sol`](https://github.com/lidofinance/lend/blob/422d589f9d098124249b54b55306884165833207/src/LidoLend.sol)): the forked Morpho Blue core, which can bind a market to a controller at creation and adds the par-value `settle` exit, burning a supplier's shares to cancel borrower debt and seize the matching collateral.
 
 **Markets layer** ([`lido-lend-markets/src/`](../src/))
 
@@ -73,15 +73,15 @@ The contracts in scope:
 
 6. **MorphoExitBook** ([`periphery/MorphoExitBook.sol`](../src/periphery/MorphoExitBook.sol)): the Morpho exit book, the same order book backed by a lender's supply position instead of vault shares, filled by withdrawing from it on the markets governance allows.
 
-**Rate models** ([`lido-lend-irm/src/`](../lib/lend-irm/src/))
+**Rate models** ([`lido-lend-irm/src/`](https://github.com/lidofinance/lend-irm/tree/566d31f7dfdf83d07a6593f641f7474c263a7f89/src))
 
-7. **AdaptiveCurveIrm** ([`adaptive-curve-irm/AdaptiveCurveIrm.sol`](../lib/lend-irm/src/adaptive-curve-irm/AdaptiveCurveIrm.sol)): the adaptive rate model, pricing each market's borrow rate from utilization and steering its rate at target through an exponential adaptation bounded by a per-config band.
+7. **AdaptiveCurveIrm** ([`adaptive-curve-irm/AdaptiveCurveIrm.sol`](https://github.com/lidofinance/lend-irm/blob/566d31f7dfdf83d07a6593f641f7474c263a7f89/src/adaptive-curve-irm/AdaptiveCurveIrm.sol)): the adaptive rate model, pricing each market's borrow rate from utilization and steering its rate at target through an exponential adaptation bounded by a per-config band.
 
-8. **LinearKinkIrm** ([`linear-kink-irm/LinearKinkIrm.sol`](../lib/lend-irm/src/linear-kink-irm/LinearKinkIrm.sol)): the linear kink rate model, quoting a rate that climbs one slope below the optimal utilization and a steeper one above it, capped by a protocol-wide ceiling.
+8. **LinearKinkIrm** ([`linear-kink-irm/LinearKinkIrm.sol`](https://github.com/lidofinance/lend-irm/blob/566d31f7dfdf83d07a6593f641f7474c263a7f89/src/linear-kink-irm/LinearKinkIrm.sol)): the linear kink rate model, quoting a rate that climbs one slope below the optimal utilization and a steeper one above it, capped by a protocol-wide ceiling.
 
-9. **IrmRouter** ([`irm-router/IrmRouter.sol`](../lib/lend-irm/src/irm-router/IrmRouter.sol)): the routing facade the core prices through, dispatching each market's rate query to the model configured for that market behind a one-way initialization latch.
+9. **IrmRouter** ([`irm-router/IrmRouter.sol`](https://github.com/lidofinance/lend-irm/blob/566d31f7dfdf83d07a6593f641f7474c263a7f89/src/irm-router/IrmRouter.sol)): the routing facade the core prices through, dispatching each market's rate query to the model configured for that market behind a one-way initialization latch.
 
-10. **IrmConfigFactory** ([`irm-config-factory/IrmConfigFactory.sol`](../lib/lend-irm/src/irm-config-factory/IrmConfigFactory.sol)): the deduplicating factory of immutable rate model configs, deploying a fresh instance for new parameters and returning the registered one whenever the same parameters come back.
+10. **IrmConfigFactory** ([`irm-config-factory/IrmConfigFactory.sol`](https://github.com/lidofinance/lend-irm/blob/566d31f7dfdf83d07a6593f641f7474c263a7f89/src/irm-config-factory/IrmConfigFactory.sol)): the deduplicating factory of immutable rate model configs, deploying a fresh instance for new parameters and returning the registered one whenever the same parameters come back.
 
 <div style="page-break-before: always;"></div>
 
